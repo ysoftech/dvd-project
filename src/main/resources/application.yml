@@ -1,8 +1,8 @@
 spring:
   datasource:
     url: jdbc:postgresql://localhost:5432/dvdrental
-    username: ${username}
-    password: ${password}
+    username: yash
+    password: yash
   jpa:
     database-platform: org.hibernate.dialect.PostgreSQLDialect
     show-sql: true
