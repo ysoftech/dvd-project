@@ -13,4 +13,7 @@ public interface AddressRepository extends JpaRepository<Address, Integer> {
     @EntityGraph(attributePaths = {"city.country", "customers"})
     List<Address> findAllAddresses();
 
+    @Query(value = "select a from Address a JOIN FETCH a.city c JOIN FETCH c.country")
+    List<Address> findAllAddressesWithCitiesAndCountries();
+
 }

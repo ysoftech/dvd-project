@@ -14,6 +14,6 @@ public class AddressService {
     private AddressRepository addressRepository;
 
     public List<Address> getAllAddress() {
-        return addressRepository.findAllAddresses();
+        return addressRepository.findAllAddressesWithCitiesAndCountries();
     }
 }
