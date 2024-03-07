@@ -11,6 +11,7 @@ import java.util.List;
 
 
 @Service
+@Transactional
 public class AddressService {
 
     @Autowired
@@ -19,9 +20,12 @@ public class AddressService {
     @Autowired
     private AddressQueryBuilder addressQueryBuilder;
 
-    @Transactional
     public List<Address> getAllAddress() {
         // return addressRepository.findAllAddressesWithCitiesAndCountries();
-        return addressQueryBuilder.buildAddressQuery().fetch();
+        return addressQueryBuilder.findAllAddress().fetch();
+    }
+
+    public List<Address> getAddressByCity(String city) {
+        return addressQueryBuilder.findAllAddressByCity(city).fetch();
     }
 }
