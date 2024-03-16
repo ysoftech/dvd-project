@@ -48,6 +48,9 @@ public class Film extends BaseEntity {
             inverseJoinColumns = @JoinColumn(name = "category_id"))
     private List<Category> categories = new ArrayList<>();
 
+    @OneToMany(mappedBy = "film")
+    private List<Inventory> inventories = new ArrayList<>();
+
     protected Film() {}
 
     public Film(String title, Integer releaseYear, Short length, MPAA_RATING rating) {
@@ -147,6 +150,14 @@ public class Film extends BaseEntity {
 
     public void addCategory(Category category) {
         this.getCategories().add(category);
+    }
+
+    public List<Inventory> getInventories() {
+        return inventories;
+    }
+
+    public void addInventory(Inventory inventory) {
+        this.getInventories().add(inventory);
     }
 
     public enum MPAA_RATING {
