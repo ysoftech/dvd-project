@@ -43,6 +43,11 @@ public class Film extends BaseEntity {
     @JoinColumn(name = "language_id")
     private Language language;
 
+    @ManyToMany
+    @JoinTable(name = "film_category", joinColumns = @JoinColumn(name = "film_id"),
+            inverseJoinColumns = @JoinColumn(name = "category_id"))
+    private List<Category> categories = new ArrayList<>();
+
     protected Film() {}
 
     public Film(String title, Integer releaseYear, Short length, MPAA_RATING rating) {
@@ -134,6 +139,14 @@ public class Film extends BaseEntity {
 
     public void setLanguage(Language language) {
         this.language = language;
+    }
+
+    public List<Category> getCategories() {
+        return categories;
+    }
+
+    public void addCategory(Category category) {
+        this.getCategories().add(category);
     }
 
     public enum MPAA_RATING {

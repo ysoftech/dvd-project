@@ -1,9 +1,8 @@
 package com.ysoftech.learning.dvdproject.entity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class Category extends BaseEntity {
@@ -14,6 +13,9 @@ public class Category extends BaseEntity {
     private Integer id;
 
     private String name;
+
+    @ManyToMany(mappedBy = "categories")
+    private List<Film> films = new ArrayList<>();
 
     protected Category() {}
 
@@ -31,5 +33,13 @@ public class Category extends BaseEntity {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public List<Film> getFilms() {
+        return films;
+    }
+
+    public void addFilm(Film film) {
+        this.getFilms().add(film);
     }
 }
