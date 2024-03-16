@@ -1,9 +1,6 @@
 package com.ysoftech.learning.dvdproject.entity;
 
-
-
 import org.springframework.stereotype.Component;
-
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -41,6 +38,10 @@ public class Film extends BaseEntity {
     @ManyToMany
     @JoinTable(name = "film_actor", joinColumns = @JoinColumn(name = "film_id"), inverseJoinColumns = @JoinColumn(name = "actor_id"))
     private List<Actor> actors = new ArrayList<>();
+
+    @ManyToOne
+    @JoinColumn(name = "language_id")
+    private Language language;
 
     protected Film() {}
 
@@ -125,6 +126,14 @@ public class Film extends BaseEntity {
 
     public void addActors(Actor actor) {
         this.getActors().add(actor);
+    }
+
+    public Language getLanguage() {
+        return language;
+    }
+
+    public void setLanguage(Language language) {
+        this.language = language;
     }
 
     public enum MPAA_RATING {

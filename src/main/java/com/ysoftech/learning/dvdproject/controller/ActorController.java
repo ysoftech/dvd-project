@@ -21,6 +21,6 @@ public class ActorController {
     @GetMapping("/actor/{id}")
     public ResponseEntity<Actor> getActor(@PathVariable Integer id) {
        // return new ResponseEntity<Actor>(actorService.findById(id), HttpStatus.OK);
-       return ResponseEntity.ok(actorService.findById(id));
+       return ResponseEntity.ok(actorService.getActorById(id));
     }
 }
