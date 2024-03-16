@@ -1,6 +1,7 @@
 package com.ysoftech.learning.dvdproject.entity;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -13,7 +14,7 @@ public class Language extends BaseEntity {
     private String name;
 
     @OneToMany(mappedBy = "language")
-    private List<Film> films;
+    private List<Film> films = new ArrayList<>();
 
     protected Language() {}
 
