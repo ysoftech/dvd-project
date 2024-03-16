@@ -1,13 +1,13 @@
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5432/dvdrental
+    url: jdbc:postgresql://localhost:5432/yash
     username: yash
     password: yash
   jpa:
     database-platform: org.hibernate.dialect.PostgreSQLDialect
     show-sql: true
     hibernate:
-      ddl-auto: none
+      ddl-auto: create
 
 logging:
   level:

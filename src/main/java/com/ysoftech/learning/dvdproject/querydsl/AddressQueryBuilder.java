@@ -1,10 +1,6 @@
 package com.ysoftech.learning.dvdproject.querydsl;
 
 import com.querydsl.jpa.impl.JPAQuery;
-import com.ysoftech.learning.dvdproject.entity.Address;
-import com.ysoftech.learning.dvdproject.entity.QAddress;
-import com.ysoftech.learning.dvdproject.entity.QCity;
-import com.ysoftech.learning.dvdproject.entity.QCountry;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
@@ -26,6 +22,14 @@ public class AddressQueryBuilder {
 
     // Step 5: query execute karein using fetch() or fetchOne().
 
+/*
+    public JPAQuery<Address> findAllAddressLazyTest() {
+        QAddress qAddress = QAddress.address1;
+        JPAQuery<Address> jpaQuery = new JPAQuery<>(em);
+        jpaQuery.select(qAddress)
+                .from(qAddress);
+        return jpaQuery;
+    }
 
     public JPAQuery<Address> findAllAddress() {
         // Step 1: QType entity declaration
@@ -71,5 +75,5 @@ public class AddressQueryBuilder {
         return findByCityQuery;
 
     }
-
+*/
 }

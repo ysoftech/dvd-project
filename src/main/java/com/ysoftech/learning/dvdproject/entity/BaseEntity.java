@@ -1,31 +1,31 @@
 package com.ysoftech.learning.dvdproject.entity;
 
+import org.hibernate.annotations.UpdateTimestamp;
+
 import javax.persistence.Column;
 import javax.persistence.MappedSuperclass;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
-import java.util.Date;
+import java.time.LocalDate;
 
 @MappedSuperclass
 public abstract class BaseEntity {
 
     @Column(name="last_update")
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date lastUpdate;
+    @UpdateTimestamp
+    private LocalDate lastUpdate;
 
 
     protected BaseEntity() {
     }
 
-    public BaseEntity(Date lastUpdate) {
+    public BaseEntity(LocalDate lastUpdate) {
         this.lastUpdate = lastUpdate;
     }
 
-    public Date getLastUpdate() {
+    public LocalDate getLastUpdate() {
         return lastUpdate;
     }
 
-    public void setLastUpdate(Date lastUpdate) {
+    public void setLastUpdate(LocalDate lastUpdate) {
         this.lastUpdate = lastUpdate;
     }
 }
